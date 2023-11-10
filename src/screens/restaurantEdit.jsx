@@ -1,25 +1,37 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { createRestaurant } from "../services/restaurants";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { editRestaurant, getRestaurant } from "../services/restaurants";
 
-function RestaurantCreate() {
+function RestaurantEdit() {
   const [restaurant, setRestaurant] = useState({
-    name: "Franchia Vegan Café",
-    address: "12 Park Ave",
-    city: "New York",
-    state_province: "New York",
-    postal_code: "10016",
-    phone: "2122131001",
-    website_url: "https://franchia.com/",
+    name: "",
+    address: "",
+    city: "",
+    state_province: "",
+    postal_code: "",
+    phone: "",
+    website_url: "",
+    likesCuddles: true,
   });
 
+  let { id } = useParams();
+  console.log(id);
   let navigate = useNavigate();
+
+  useEffect(() => {
+    fetchRestaurant();
+  }, []);
+
+  async function fetchRestaurant() {
+    const oneRestaurant = await getRestaurant(id);
+    setRestaurant(oneRestaurant);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await createCat(restaurant);
-    navigate("/restaurants");
+    await editRestaurant(id, restaurant);
+    navigate(`/restaurants/${id}`);
   };
 
   const handleChange = (e) => {
@@ -33,16 +45,16 @@ function RestaurantCreate() {
 
   return (
     <div>
-      <h1>Add your favorite restaurant in our Database!</h1>
+      <h1>Edit the restaurant in our Database!</h1>
       <form className="create-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Please add the restaurants name"
+          placeholder="Please add the restaurant's name"
           name="name"
           value={restaurant.name}
           onChange={handleChange}
         />
-        <input type="text" placeholder="Name" onChange={handleChange} />
+
         <input
           type="text"
           name="address"
@@ -72,15 +84,15 @@ function RestaurantCreate() {
         />
         <input
           type="text"
-          placeholder="Please add the retsuarant's URL link"
-          name="link"
-          value={restaurant.link}
+          placeholder="Please add the restaurant's url link"
+          name="url"
+          value={restaurant.url}
           onChange={handleChange}
         />
-        <button type="submit">Submit Your Restaurant!</button>
+        <button type="submit">Edit the Restaurant!</button>
       </form>
     </div>
   );
 }
 
-export default RestaurantCreate;
+export default RestaurantEdit;
