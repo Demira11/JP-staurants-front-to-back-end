@@ -1,59 +1,54 @@
-import React, { useState } from "react";
 import "./App.css";
+import axios from "axios";
+import React, { useState , useEffect } from "react";
 
-const App = () => {
+function App() {
   const [city, setCity] = useState("");
   const [restaurants, setRestaurants] = useState([]);
   const [error, setError] = useState(null);
 
-  const handleSearch = async () => {
+   function handleSearch  async () => {
     try {
-      const response = await fetch(`/api/restaurants/${city}`);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setRestaurants(data);
-      setError(null); // Clear any previous errors
+      const response = await axios.get(`/api/restaurants/${city}`);
+      console.log(response.data);
+      setRestaurants(response.data);
+      setError(null);
     } catch (error) {
       console.error("Error fetching data:", error);
-      setRestaurants([]); // Clear restaurants on error
-      setError("Error fetching data. Please try again."); // Set an error message
+      setRestaurants([]);
+      setError("Error fetching data. Please try again.");
     }
   };
 
+  useEffect(() => {
+    
+    
+  }, []);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Find your restaurant fast</h1>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Enter city name"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </div>
-        {error && <p className="error-message">{error}</p>}
-        <div className="restaurants-container">
-          {restaurants.length > 0 ? (
-            restaurants.map((restaurant) => (
-              <div key={restaurant._id} className="restaurant-card">
-                <h2>{restaurant.name}</h2>
-                <p>
-                  {restaurant.address_1}, {restaurant.city},{" "}
-                  {restaurant.state_province}
-                </p>
-              </div>
-            ))
-          ) : (
-            <p>No restaurants found.</p>
-          )}
-        </div>
-      </header>
+      <h1>Find Restaurants by City</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter city name"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+      {error && <p className="error-message">{error}</p>}
+      <div className="restaurants-container">
+        {restaurants.map((restaurant) => (
+          <div key={restaurant._id} className="restaurant-card">
+            <h2>{restaurant.name}</h2>
+            <p>{restaurant.city}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
+}
 
 export default App;
