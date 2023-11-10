@@ -1,52 +1,26 @@
 import "./App.css";
 import axios from "axios";
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Nav from "./components/Nav.jsx";
+import Home from "./screens/Home.jsx";
+import Restaurants from "./screens/Restaurants.jsx";
+import RestaurantDetail from "./screens/RestaurantDetail.jsx";
+import RestaurantCreate from "./screens/RestaurantCreate.jsx";
+import RestaurantEdit from "./screens/restaurantEdit.jsx";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
-  const [city, setCity] = useState("");
-  const [restaurants, setRestaurants] = useState([]);
-  const [error, setError] = useState(null);
-
-   function handleSearch  async () => {
-    try {
-      const response = await axios.get(`/api/restaurants/${city}`);
-      console.log(response.data);
-      setRestaurants(response.data);
-      setError(null);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setRestaurants([]);
-      setError("Error fetching data. Please try again.");
-    }
-  };
-
-  useEffect(() => {
-    
-    
-  }, []);
-
-
   return (
     <div className="App">
-      <h1>Find Restaurants by City</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-      {error && <p className="error-message">{error}</p>}
-      <div className="restaurants-container">
-        {restaurants.map((restaurant) => (
-          <div key={restaurant._id} className="restaurant-card">
-            <h2>{restaurant.name}</h2>
-            <p>{restaurant.city}</p>
-          </div>
-        ))}
-      </div>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/restaurants/:id" element={<RestaurantDetail />} />
+        <Route path="/add-restaurant" element={<RestaurantCreate />} />
+        <Route path="/restaurants/:id/edit" element={<RestaurantEdit />} />
+      </Routes>
     </div>
   );
 }
