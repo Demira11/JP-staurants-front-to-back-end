@@ -1,12 +1,9 @@
-import "./App.css";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
 import Nav from "./components/Nav.jsx";
 import Home from "./screens/Home.jsx";
 import Restaurants from "./screens/Restaurants.jsx";
 import RestaurantDetail from "./screens/RestaurantDetail.jsx";
 import RestaurantCreate from "./screens/RestaurantCreate.jsx";
-import RestaurantEdit from "./screens/restaurantEdit.jsx";
+import RestaurantEdit from "./screens/RestaurantEdit.jsx";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 

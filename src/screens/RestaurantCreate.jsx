@@ -18,7 +18,7 @@ function RestaurantCreate() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await createCat(restaurant);
+    await createRestaurant(restaurant);
     navigate("/restaurants");
   };
 
