@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  background-color: #add8e6;
+  box-sizing: border-box;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -42,8 +42,30 @@ nav a {
   height: auto;
 }
 
+button {
+  width: 190px;
+  height: 45px;
+  background-color: rgb(220, 220, 121);
+  border: rgb(85, 48, 4) 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+input {
+  width: 180px;
+  height: 40px;
+  border: rgb(85, 48, 4) 1px solid;
+  border-radius: 4px;
+
+  color: black;
+  font-size: 20px;
+}
+
 @media screen and (max-width: 800px) {
   body {
-    background-color: lightblue;
+    background-color: whitesmoke;
   }
 }

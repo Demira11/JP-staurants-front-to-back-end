@@ -4,13 +4,13 @@ import { createRestaurant } from "../services/restaurants";
 
 function RestaurantCreate() {
   const [restaurant, setRestaurant] = useState({
-    name: "Franchia Vegan Café",
-    address: "12 Park Ave",
-    city: "New York",
-    state_province: "New York",
-    postal_code: "10016",
-    phone: "2122131001",
-    website_url: "https://franchia.com/",
+    name: "",
+    address: "",
+    city: "",
+    state_province: "",
+    postal_code: "",
+    phone: "",
+    website_url: "",
   });
 
   let navigate = useNavigate();
@@ -35,20 +35,8 @@ function RestaurantCreate() {
     <div>
       <h1>Add your favorite restaurant into our Database!</h1>
       <form className="create-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Please add the restaurants name"
-          name="name"
-          value={restaurant.name}
-          onChange={handleChange}
-        />
         <input type="text" placeholder="Name" onChange={handleChange} />
-        <input
-          type="text"
-          name="address"
-          value={restaurant.address}
-          onChange={handleChange}
-        />
+
         <input
           type="text"
           placeholder="City"
@@ -63,6 +51,7 @@ function RestaurantCreate() {
           value={restaurant.state}
           onChange={handleChange}
         />
+
         <input
           type="number"
           placeholder="Phone number"
@@ -71,13 +60,21 @@ function RestaurantCreate() {
           onChange={handleChange}
         />
         <input
+          type="number"
+          placeholder="Postal Code"
+          name="postalcode"
+          value={restaurant.postalcode}
+          onChange={handleChange}
+        />
+        <input
           type="text"
-          placeholder="Please add the retsuarant's URL link"
+          placeholder="URL link"
           name="link"
           value={restaurant.link}
           onChange={handleChange}
         />
-        <button type="submit">Submit Your Restaurant!</button>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

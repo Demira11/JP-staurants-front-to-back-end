@@ -29,7 +29,7 @@ function RestaurantDetail() {
       <p>{restaurant.city}</p>
       <p>{restaurant.state}</p>
       <p>{restaurant.phone}</p>
-      <p>{restaurant.state}</p>
+      <p>{restaurant.postalcode}</p>
       {restaurant.isVegan ? (
         <p>Yes,Vegan friendly!</p>
       ) : (
