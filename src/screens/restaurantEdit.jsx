@@ -49,7 +49,7 @@ function RestaurantEdit() {
       <form className="create-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Please add the restaurant's name"
+          placeholder="Name"
           name="name"
           value={restaurant.name}
           onChange={handleChange}
@@ -83,13 +83,20 @@ function RestaurantEdit() {
           onChange={handleChange}
         />
         <input
+          type="number"
+          placeholder="Postal Code"
+          name="postalcode"
+          value={restaurant.postalcode}
+          onChange={handleChange}
+        />
+        <input
           type="text"
-          placeholder="Please add the restaurant's url link"
+          placeholder="Url link"
           name="url"
           value={restaurant.url}
           onChange={handleChange}
         />
-        <button type="submit">Edit the Restaurant!</button>
+        <button type="submit">Edit the Restaurant</button>
       </form>
     </div>
   );

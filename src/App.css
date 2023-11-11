@@ -59,9 +59,15 @@ input {
   height: 40px;
   border: rgb(85, 48, 4) 1px solid;
   border-radius: 4px;
-
+  margin: 10px;
   color: black;
   font-size: 20px;
+}
+
+.search-box {
+  width: 310px;
+  height: 42px;
+  font-size: 18px;
 }
 
 @media screen and (max-width: 800px) {
