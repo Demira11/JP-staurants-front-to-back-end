@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  background-color: #add8e6;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .home {
@@ -21,10 +25,25 @@
 nav a {
   font-size: 24px;
   text-decoration: none;
-  color: green;
-  margin-right: 10px;
+  color: whitesmoke;
+  text-align: center;
 }
 
 .nav-container {
-  display: flex;
+  background-color: rgb(85, 48, 4);
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    background-color: lightblue;
+  }
 }

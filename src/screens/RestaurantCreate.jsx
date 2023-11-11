@@ -33,7 +33,7 @@ function RestaurantCreate() {
 
   return (
     <div>
-      <h1>Add your favorite restaurant in our Database!</h1>
+      <h1>Add your favorite restaurant into our Database!</h1>
       <form className="create-form" onSubmit={handleSubmit}>
         <input
           type="text"
