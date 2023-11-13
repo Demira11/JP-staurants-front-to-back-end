@@ -7,7 +7,7 @@
 }
 
 .home {
-  font-size: 40px;
+  font-size: 50px;
   color: rgb(66, 24, 24);
 }
 
@@ -52,6 +52,7 @@ button {
   color: black;
   font-size: 20px;
   margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 input {
@@ -68,6 +69,11 @@ input {
   width: 310px;
   height: 42px;
   font-size: 18px;
+  margin-bottom: 20px;
+}
+
+img {
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 800px) {

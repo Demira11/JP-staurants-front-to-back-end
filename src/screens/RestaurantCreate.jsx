@@ -34,6 +34,7 @@ function RestaurantCreate() {
   return (
     <div>
       <h1>Add your favorite restaurant into our Database!</h1>
+
       <form className="create-form" onSubmit={handleSubmit}>
         <input type="text" placeholder="Name" onChange={handleChange} />
 
@@ -76,6 +77,10 @@ function RestaurantCreate() {
 
         <button type="submit">Submit</button>
       </form>
+      <img
+        src="https://www.tastingtable.com/img/gallery/best-italian-restaurants-in-nyc/l-intro-1687816141.jpg"
+        alt="colorful food"
+      />
     </div>
   );
 }
