@@ -78,7 +78,7 @@ function RestaurantCreate() {
         <button type="submit">Submit</button>
       </form>
       <img
-        src="https://www.tastingtable.com/img/gallery/best-italian-restaurants-in-nyc/l-intro-1687816141.jpg"
+        src="https://media.timeout.com/images/105802468/image.jpg"
         alt="colorful food"
       />
     </div>
