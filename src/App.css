@@ -8,7 +8,7 @@
 
 .home {
   font-size: 50px;
-  color: rgb(66, 24, 24);
+  color: black;
 }
 
 .restaurant-images {
@@ -30,7 +30,7 @@ nav a {
 }
 
 .nav-container {
-  background-color: rgb(85, 48, 4);
+  background-color: black;
   width: 100%;
   height: 60px;
   text-align: center;
