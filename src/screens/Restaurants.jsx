@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { getRestaurantsByCity } from "../services/restaurants.js";
+import { getRestaurants } from "../services/restaurants.js";
 import Restaurant from "../components/Restaurant.jsx";
 
 function Restaurants() {
@@ -14,20 +14,22 @@ function Restaurants() {
     if (city) {
       fetchRestaurants();
     }
-  }, [city]);
+  }, []);
 
   async function fetchRestaurants() {
-    const cityRestaurants = await getRestaurantsByCity(city);
-    setRestaurants(cityRestaurants);
+    const restaurants = await getRestaurants();
+    setRestaurants(restaurants);
   }
 
   return (
     <div>
       <h1>All the Restaurants in {city}!</h1>
       <div className="restaurants-container">
-        {restaurants?.map((restaurant) => (
-          <Restaurant key={restaurant._id} restaurant={restaurant} />
-        ))}
+        {restaurants
+          ?.filter((restaurant) => restaurant.city)
+          .map((restaurant) => (
+            <Restaurant key={restaurant._id} restaurant={restaurant} />
+          ))}
       </div>
     </div>
   );
