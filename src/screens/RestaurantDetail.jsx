@@ -25,11 +25,15 @@ function RestaurantDetail() {
   return (
     <div>
       <h1>Welcome, to {restaurant.name}</h1>
-      <url src={restaurant.url} alt={restaurant.name} />
+
       <p>{restaurant.city}</p>
       <p>{restaurant.state}</p>
+      <p>{restaurant.address_1}</p>
       <p>{restaurant.phone}</p>
-      <p>{restaurant.postalcode}</p>
+      <p>{restaurant.postal_code}</p>
+      <p>
+        <Link to={restaurant.website_url}>{restaurant.website_url}</Link>
+      </p>
       {restaurant.isVegan ? (
         <p>Yes,Vegan friendly!</p>
       ) : (

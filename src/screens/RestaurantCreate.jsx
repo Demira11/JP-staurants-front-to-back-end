@@ -5,7 +5,7 @@ import { createRestaurant } from "../services/restaurants";
 function RestaurantCreate() {
   const [restaurant, setRestaurant] = useState({
     name: "",
-    address: "",
+    address_1: "",
     city: "",
     state_province: "",
     postal_code: "",
@@ -36,7 +36,21 @@ function RestaurantCreate() {
       <h1>Add your favorite restaurant into our Database!</h1>
 
       <form className="create-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Name" onChange={handleChange} />
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          value={restaurant.name}
+          onChange={handleChange}
+        />
+
+        <input
+          type="text"
+          placeholder="Address"
+          name="address_1"
+          value={restaurant.address_1}
+          onChange={handleChange}
+        />
 
         <input
           type="text"
@@ -45,6 +59,7 @@ function RestaurantCreate() {
           value={restaurant.city}
           onChange={handleChange}
         />
+
         <input
           type="text"
           placeholder="State"
@@ -56,22 +71,22 @@ function RestaurantCreate() {
         <input
           type="number"
           placeholder="Phone number"
-          name="number"
-          value={restaurant.number}
+          name="phone"
+          value={restaurant.phone}
           onChange={handleChange}
         />
         <input
           type="number"
           placeholder="Postal Code"
-          name="postalcode"
-          value={restaurant.postalcode}
+          name="postal_code"
+          value={restaurant.postal_code}
           onChange={handleChange}
         />
         <input
           type="text"
           placeholder="URL link"
-          name="link"
-          value={restaurant.link}
+          name="website_url"
+          value={restaurant.website_url}
           onChange={handleChange}
         />
 

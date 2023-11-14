@@ -8,6 +8,9 @@ function Home() {
   const handleSearch = () => {
     navigate(`/restaurants?city=${encodeURIComponent(city)}`);
   };
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   return (
     <div>
@@ -18,7 +21,7 @@ function Home() {
           className="search-box"
           placeholder="Enter City..."
           value={city}
-          onChange={(e) => setCity(e.target.value)}
+          onChange={(e) => setCity(capitalizeFirstLetter(e.target.value))}
         />
         <button className="search-button-home" onClick={handleSearch}>
           Go

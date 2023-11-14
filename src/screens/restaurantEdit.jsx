@@ -5,7 +5,7 @@ import { editRestaurant, getRestaurant } from "../services/restaurants";
 function RestaurantEdit() {
   const [restaurant, setRestaurant] = useState({
     name: "",
-    address: "",
+    address_1: "",
     city: "",
     state_province: "New York",
     postal_code: "",
@@ -57,8 +57,9 @@ function RestaurantEdit() {
 
         <input
           type="text"
-          name="address"
-          value={restaurant.address}
+          placeholder="Address"
+          name="address_1"
+          value={restaurant.address_1}
           onChange={handleChange}
         />
         <input
@@ -78,22 +79,22 @@ function RestaurantEdit() {
         <input
           type="number"
           placeholder="Phone number"
-          name="number"
-          value={restaurant.number}
+          name="phone"
+          value={restaurant.phone}
           onChange={handleChange}
         />
         <input
           type="number"
           placeholder="Postal Code"
-          name="postalcode"
-          value={restaurant.postalcode}
+          name="postal_code"
+          value={restaurant.postal_code}
           onChange={handleChange}
         />
         <input
           type="text"
           placeholder="Url link"
-          name="url"
-          value={restaurant.url}
+          name="website_url"
+          value={restaurant.website_url}
           onChange={handleChange}
         />
         <button type="submit">Edit the Restaurant</button>

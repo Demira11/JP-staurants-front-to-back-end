@@ -1,9 +1,8 @@
 import axios from "axios";
 let apiUrl;
 const apiUrls = {
-  production:
-    "https://restaurant-api1-0cadf6d31e8f.herokuapp.com/api/restaurants/api",
-  development: "http://localhost:3000/api",
+  production: "https://restaurant-api1-0cadf6d31e8f.herokuapp.com/api/",
+  development: "https://restaurant-api1-0cadf6d31e8f.herokuapp.com/api/",
 };
 
 if (window.location.hostname === "localhost") {

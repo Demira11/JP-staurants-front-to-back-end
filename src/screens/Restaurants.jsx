@@ -1,5 +1,3 @@
-// src/screens/Restaurants.jsx
-
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getRestaurants } from "../services/restaurants.js";
@@ -14,25 +12,29 @@ function Restaurants() {
     if (city) {
       fetchRestaurants();
     }
-  }, []);
+  }, [city]);
 
   async function fetchRestaurants() {
-    const restaurants = await getRestaurants();
-    setRestaurants(restaurants);
+    const allRestaurants = await getRestaurants();
+
+    const filteredRestaurants = allRestaurants?.filter(
+      (restaurant) => restaurant.city === city
+    );
+
+    console.log(allRestaurants);
+    console.log(filteredRestaurants);
+    setRestaurants(filteredRestaurants);
   }
 
   return (
     <div>
       <h1>All the Restaurants in {city}!</h1>
       <div className="restaurants-container">
-        {restaurants
-          ?.filter((restaurant) => restaurant.city)
-          .map((restaurant) => (
-            <Restaurant key={restaurant._id} restaurant={restaurant} />
-          ))}
+        {restaurants?.map((restaurant) => (
+          <Restaurant key={restaurant._id} restaurant={restaurant} />
+        ))}
       </div>
     </div>
   );
 }
-
 export default Restaurants;
