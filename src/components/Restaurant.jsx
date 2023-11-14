@@ -4,11 +4,7 @@ function Restaurant({ restaurant }) {
   return (
     <div>
       <Link to={`/restaurants/${restaurant._id}`}>
-        <img
-          className="restaurant-images"
-          src={restaurant.image}
-          alt={restaurant.name}
-        />
+        <p className="restaurant-images">{restaurant.name}</p>
       </Link>
     </div>
   );
