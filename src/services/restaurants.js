@@ -9,6 +9,17 @@ export const getRestaurants = async () => {
   }
 };
 
+export const getRestaurantsByCity = async (city) => {
+  try {
+    const response = await api.get("/restaurants", {
+      params: { city },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error: Getting Restaurants by City: ", error);
+  }
+};
+
 export const getRestaurant = async (id) => {
   try {
     const response = await api.get(`/restaurants/${id}`);
@@ -18,7 +29,7 @@ export const getRestaurant = async (id) => {
   }
 };
 
-export const createRestaurant = async (catData) => {
+export const createRestaurant = async (restaurantData) => {
   try {
     const response = await api.post("/restaurants", restaurantData);
     return response.data;
@@ -27,7 +38,7 @@ export const createRestaurant = async (catData) => {
   }
 };
 
-export const editRestaurant = async (id, catData) => {
+export const editRestaurant = async (id, restaurantData) => {
   try {
     const response = await api.put(`/restaurants/${id}`, restaurantData);
     return response.data;

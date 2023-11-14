@@ -7,7 +7,7 @@ function RestaurantEdit() {
     name: "",
     address: "",
     city: "",
-    state_province: "",
+    state_province: "New York",
     postal_code: "",
     phone: "",
     website_url: "",
