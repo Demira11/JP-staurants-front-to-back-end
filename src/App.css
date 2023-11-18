@@ -12,9 +12,12 @@
 }
 
 .restaurant-images {
-  height: 100px;
-  width: 100px;
+  height: 170px;
+  width: 170px;
+  font-size: 30px;
   color: black;
+  gap: 40px;
+  text-decoration: navajowhite;
 }
 
 .restaurants-container {
