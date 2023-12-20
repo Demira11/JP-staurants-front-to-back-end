@@ -16,5 +16,3 @@ This front-end application interacts with a restaurant API to provide users with
 - **React Router:** Navigation library for handling page routing.
 - **Axios:** HTTP client for making API requests.
 - **CSS:** Styling the application for a better user experience.
-
-DEMO:
